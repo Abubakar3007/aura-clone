@@ -61,7 +61,7 @@ const Contact = () => {
               </div>
 
               {/* CTA */}
-              <Link href="/request-callback" className="btn-primary armata tracking-wider px-8 inline-flex h-[60px]">
+              <Link href="/request-call-back" className="btn-primary armata tracking-wider px-8 inline-flex h-[60px]">
                 Request a Call Back
                 <ChevronRight className="w-6 h-6" />
               </Link>

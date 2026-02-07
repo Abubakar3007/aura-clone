@@ -1,5 +1,5 @@
-import Layout from "@/components/layout/Layout";
-import CallbackForm from "@/components/forms/CallbackForm";
+import Layout from "@/app/components/layout/Layout";
+import CallbackForm from "@/app/components/forms/CallbackForm";
 const RequestCallback = () => {
   return (
     <Layout>

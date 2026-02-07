@@ -1,5 +1,6 @@
+"use client";
 import { useState } from "react";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { toast } from "sonner";
 const CallbackForm = () => {
   const [formData, setFormData] = useState({

@@ -1,21 +1,16 @@
+"use client"
 import { useRef } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import Layout from '@/components/layout/Layout';
-import influencer1 from '@/assets/influencer-1.jpg';
-import modelFemale1 from '@/assets/model-female-1.jpg';
-import modelFemale2 from '@/assets/model-female-2.jpg';
-import modelFemale3 from '@/assets/model-female-3.jpg';
-import modelMale1 from '@/assets/model-male-1.jpg';
-import modelMale2 from '@/assets/model-male-2.jpg';
+import Layout from '@/app/components/layout/Layout';
+import Link from 'next/link';
 
 const influencers = [
-  { id: 1, name: 'Sophia', followers: '450K', image: influencer1 },
-  { id: 2, name: 'Riya', followers: '320K', image: modelFemale1 },
-  { id: 3, name: 'Aditya', followers: '280K', image: modelMale1 },
-  { id: 4, name: 'Priya', followers: '520K', image: modelFemale2 },
-  { id: 5, name: 'Vikram', followers: '190K', image: modelMale2 },
-  { id: 6, name: 'Ananya', followers: '680K', image: modelFemale3 },
+  { id: 1, name: 'Sophia', followers: '450K', image: "https://images.squarespace-cdn.com/content/v1/63810cc8347e214d6a1808a3/781ce845-0278-48ac-8011-6ce2b344865d/model-portfolio-photographer-studio-plymouth-devon-3" },
+  { id: 2, name: 'Riya', followers: '320K', image: "https://bookartistsonline.weebly.com/uploads/2/2/4/5/22456530/whatsapp-image-2024-02-07-at-2-21-11-pm-1-orig-2_orig.jpeg" },
+  { id: 3, name: 'Aditya', followers: '280K', image: "https://img.freepik.com/free-photo/beautiful-woman-purple-sweater-skirt_1303-17487.jpg?semt=ais_user_personalization&w=740&q=80" },
+  { id: 4, name: 'Priya', followers: '520K', image: "https://mir-s3-cdn-cf.behance.net/project_modules/fs/62f41336102745.570f363248965.jpg" },
+  { id: 5, name: 'Vikram', followers: '190K', image: "https://www.gngmodels.com/wp-content/uploads/2023/12/indian-male-models-9-682x1024.jpg" },
+  { id: 6, name: 'Ananya', followers: '680K', image: "https://www.gngmodels.com/wp-content/uploads/2023/12/indian-male-models-2-682x1024.jpg" },
 ];
 
 const stats = [
@@ -38,7 +33,7 @@ const Influencer = () => {
   return (
     <Layout>
       {/* Header */}
-      <section className="pt-32 md:pt-40 pb-16 bg-background">
+      <section className="pt-20 pb-16 bg-background">
         <div className="container-editorial">
           <div className="max-w-4xl">
             <p className="text-uppercase text-muted-foreground mb-4 opacity-0 animate-fade-up">
@@ -185,7 +180,7 @@ const Influencer = () => {
             Connect with our team to discover how our influencer network can
             help you reach and engage your target audience.
           </p>
-          <Link to="/request-callback" className="btn-primary inline-flex">
+          <Link href="/request-callback" className="btn-primary inline-flex armata">
             Get Started
             <ArrowRight className="w-4 h-4" />
           </Link>

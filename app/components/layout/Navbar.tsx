@@ -98,7 +98,7 @@ const Navbar = () => {
                       after:absolute after:-bottom-2 after:left-0
                       after:h-[1px] after:w-0 after:transition-all after:duration-300
                       group-hover:after:w-full
-                      ${location.pathname === link.href && "after:w-full"}
+                      ${pathname === link.href && "after:w-full"}
                     `}
                   >
                     {link.name}
