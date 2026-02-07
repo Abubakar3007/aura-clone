@@ -60,7 +60,7 @@ const models: Model[] = [
   {
     id: "maya",
     name: "Maya",
-    city: "Haryana",
+    city: "Delhi",
     image: "https://bookartistsonline.weebly.com/uploads/2/2/4/5/22456530/whatsapp-image-2024-02-07-at-2-21-11-pm-1-orig-2_orig.jpeg",
     gender: "women",
     stats: { height: "5'11\"", chest: '32"', waist: '23"', hips: '34"', hair: "Black", eyes: "Brown" },
