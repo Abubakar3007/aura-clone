@@ -15,6 +15,7 @@ import {
 import Link from "next/link";
 
 const ModelDetail = () => {
+  // model dummy images
   const images = [
     "https://www.gngmodels.com/wp-content/uploads/2023/12/indian-male-models-9-682x1024.jpg",
     "https://www.gngmodels.com/wp-content/uploads/2023/12/indian-male-models-11-682x1024.jpg",
@@ -33,32 +34,36 @@ const ModelDetail = () => {
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // ✅ FINAL FIX — DOM SAFE
+  // ✅ FINAL SAFE HANDLER (NO DOM TYPES)
   const handleFigureClick = (
-    e: React.MouseEvent<HTMLElement>,
+    e: React.MouseEvent,
     image: string
   ) => {
     if (!scrollRef.current) return;
 
     const container = scrollRef.current;
     const containerRect = container.getBoundingClientRect();
-    const itemRect = e.currentTarget.getBoundingClientRect();
+    const itemRect = (e.currentTarget as HTMLElement).getBoundingClientRect();
 
     const containerCenter = containerRect.left + containerRect.width / 2;
     const itemCenter = itemRect.left + itemRect.width / 2;
     const threshold = itemRect.width / 3;
 
+    // CENTER → OPEN POPUP
     if (Math.abs(containerCenter - itemCenter) < threshold) {
       handleImagePopup(image);
       return;
     }
 
+    // LEFT → SCROLL LEFT
     if (itemCenter < containerCenter) {
       container.scrollBy({
         left: -containerRect.width / 1.5,
         behavior: "smooth",
       });
-    } else {
+    }
+    // RIGHT → SCROLL RIGHT
+    else {
       container.scrollBy({
         left: containerRect.width / 1.5,
         behavior: "smooth",
@@ -98,6 +103,7 @@ const ModelDetail = () => {
             ))}
           </div>
 
+          {/* PAGINATION */}
           <Pagination className="py-6">
             <PaginationContent className="gap-6 text-sm text-gray-300">
               <PaginationItem>
@@ -141,6 +147,7 @@ const ModelDetail = () => {
           </Link>
         </div>
 
+        {/* BACKGROUND VIDEO */}
         <div className="absolute inset-0 w-full overflow-hidden">
           <video
             src={modelVideoURL}
@@ -152,6 +159,7 @@ const ModelDetail = () => {
         </div>
       </section>
 
+      {/* IMAGE POPUP */}
       <ModelImagePopup
         open={openPopup}
         onClose={() => setOpenPopup(false)}
