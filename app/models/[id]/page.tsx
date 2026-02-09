@@ -15,7 +15,6 @@ import {
 import Link from "next/link";
 
 const ModelDetail = () => {
-  // model dummy images
   const images = [
     "https://www.gngmodels.com/wp-content/uploads/2023/12/indian-male-models-9-682x1024.jpg",
     "https://www.gngmodels.com/wp-content/uploads/2023/12/indian-male-models-11-682x1024.jpg",
@@ -29,41 +28,37 @@ const ModelDetail = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const scrollRef = useRef<HTMLDivElement>(null);
-
   const [openPopup, setOpenPopup] = useState(false);
   const [imageURL, setImageURL] = useState<string | null>(null);
 
-  // ✅ FIXED EVENT TYPE
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  // ✅ FINAL FIX — DOM SAFE
   const handleFigureClick = (
-    e: React.MouseEvent<HTMLFigureElement>,
+    e: React.MouseEvent<HTMLElement>,
     image: string
   ) => {
     if (!scrollRef.current) return;
 
     const container = scrollRef.current;
     const containerRect = container.getBoundingClientRect();
-    const figureRect = e.currentTarget.getBoundingClientRect();
+    const itemRect = e.currentTarget.getBoundingClientRect();
 
     const containerCenter = containerRect.left + containerRect.width / 2;
-    const figureCenter = figureRect.left + figureRect.width / 2;
-    const threshold = figureRect.width / 3;
+    const itemCenter = itemRect.left + itemRect.width / 2;
+    const threshold = itemRect.width / 3;
 
-    // ✅ CENTER IMAGE → POPUP
-    if (Math.abs(containerCenter - figureCenter) < threshold) {
+    if (Math.abs(containerCenter - itemCenter) < threshold) {
       handleImagePopup(image);
       return;
     }
 
-    // ⬅ LEFT IMAGE → SCROLL LEFT
-    if (figureCenter < containerCenter) {
+    if (itemCenter < containerCenter) {
       container.scrollBy({
         left: -containerRect.width / 1.5,
         behavior: "smooth",
       });
-    }
-    // ➡ RIGHT IMAGE → SCROLL RIGHT
-    else {
+    } else {
       container.scrollBy({
         left: containerRect.width / 1.5,
         behavior: "smooth",
@@ -71,14 +66,12 @@ const ModelDetail = () => {
     }
   };
 
-  // big image popup
   const handleImagePopup = (image: string) => {
     setImageURL(image);
     setOpenPopup(true);
     setCurrentIndex(images.indexOf(image));
   };
 
-  // model video dummy url
   const modelVideoURL = "https://www.pexels.com/download/video/7325049/";
 
   return (
@@ -86,7 +79,6 @@ const ModelDetail = () => {
       {/* SLIDER */}
       <section className="pt-4">
         <div className="container xl:px-0 px-6">
-          {/* HORIZONTAL SCROLL GALLERY */}
           <div
             ref={scrollRef}
             className="flex gap-8 md:gap-4 md:flex-row flex-col overflow-x-auto no-scrollbar md:scroll-smooth"
@@ -106,30 +98,20 @@ const ModelDetail = () => {
             ))}
           </div>
 
-          {/* PAGINATION */}
           <Pagination className="py-6">
             <PaginationContent className="gap-6 text-sm text-gray-300">
               <PaginationItem>
-                <PaginationPrevious
-                  href="/"
-                  className="text-gray-400 hover:bg-transparent hover:text-black"
-                />
+                <PaginationPrevious href="/" />
               </PaginationItem>
 
               <PaginationItem>
-                <PaginationLink
-                  href="#"
-                  className="text-gray-400 hover:bg-transparent hover:text-black"
-                >
+                <PaginationLink href="#">
                   <Grid2x2 className="w-4 h-4" />
                 </PaginationLink>
               </PaginationItem>
 
               <PaginationItem>
-                <PaginationNext
-                  href="/"
-                  className="text-gray-400 hover:bg-transparent hover:text-black"
-                />
+                <PaginationNext href="/" />
               </PaginationItem>
             </PaginationContent>
           </Pagination>
@@ -138,27 +120,18 @@ const ModelDetail = () => {
 
       {/* MODEL INFO */}
       <section className="pt-8 pb-16 min-h-screen relative mt-12">
-        <div className="xl:px-0 container px-6 relative z-10">
-          <div className="text-white">
-            <h1 className="text-[45px] leading-[54px]">CAIO</h1>
-            <h3 className="text-base leading-6 mt-2 mb-6">
-              HEIGHT 6'1" CHEST 40 WAIST 32 HIP 42 SHOE 43 EYES BROWN
-            </h3>
-          </div>
+        <div className="xl:px-0 container px-6 relative z-10 text-white">
+          <h1 className="text-[45px] leading-[54px]">CAIO</h1>
+          <h3 className="mt-2 mb-6">
+            HEIGHT 6'1" CHEST 40 WAIST 32 HIP 42 SHOE 43 EYES BROWN
+          </h3>
 
-          <div className="text-white">
-            <a
-              href=""
-              target="_blank"
-              className="text-sm leading-6 inline-block mb-3"
-            >
-              Download Portfolio
-            </a>
-            <br />
-            <a href="" target="_blank" className="text-sm leading-6">
-              Download Polaroids
-            </a>
-          </div>
+          <a className="block mb-2 text-sm" href="#">
+            Download Portfolio
+          </a>
+          <a className="block text-sm" href="#">
+            Download Polaroids
+          </a>
 
           <Link
             href="/auraaedge"
@@ -168,19 +141,17 @@ const ModelDetail = () => {
           </Link>
         </div>
 
-        {/* BACKGROUND VIDEO */}
         <div className="absolute inset-0 w-full overflow-hidden">
           <video
             src={modelVideoURL}
             autoPlay
             loop
             muted
-            className="w-full h-full object-cover object-center animate-hero-zoom"
+            className="w-full h-full object-cover animate-hero-zoom"
           />
         </div>
       </section>
 
-      {/* IMAGE POPUP */}
       <ModelImagePopup
         open={openPopup}
         onClose={() => setOpenPopup(false)}
