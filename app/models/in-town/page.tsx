@@ -12,7 +12,7 @@ const InTown = () => {
 
           {/* Previous */}
           <PaginationItem>
-            <PaginationPrevious asChild className="text-neutral-400/80 font-normal transition-all hover:bg-transparent hover:text-black cursor-pointer">
+            <PaginationPrevious className="text-neutral-400/80 font-normal transition-all hover:bg-transparent hover:text-black cursor-pointer">
               <Link href="/" />
             </PaginationPrevious>
           </PaginationItem>
@@ -29,7 +29,7 @@ const InTown = () => {
 
           {/* Next */}
           <PaginationItem>
-            <PaginationNext asChild className="text-neutral-400/80 transition-all font-normal hover:bg-transparent hover:text-black cursor-pointer">
+            <PaginationNext className="text-neutral-400/80 transition-all font-normal hover:bg-transparent hover:text-black cursor-pointer">
               <Link href="/" />
             </PaginationNext>
           </PaginationItem>
