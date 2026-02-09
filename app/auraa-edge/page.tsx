@@ -1,6 +1,7 @@
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Layout from "@/app/components/layout/Layout";
+
+// team dummy data
 const team = [{
   name: "Harshad Gadhvi",
   role: "Stylist | Creative Director",
@@ -8,11 +9,13 @@ const team = [{
 }, {
   name: "Priya Sharma",
   role: "Photographer | Visual Creator",
-  image:"https://t4.ftcdn.net/jpg/07/04/82/59/360_F_704825941_USdItsvq9u4zRBW7fSiDlig0wqMIujLC.jpg"
+  image: "https://t4.ftcdn.net/jpg/07/04/82/59/360_F_704825941_USdItsvq9u4zRBW7fSiDlig0wqMIujLC.jpg"
 }];
+
 const AuraaEdge = () => {
   return (
     <Layout>
+
       {/* Hero Section */}
       <section className="pt-28 section-dark pb-20">
         <div className="max-w-[1200px] w-full mx-auto xl:px-0 px-6">
@@ -25,8 +28,7 @@ const AuraaEdge = () => {
               artists are thoughtfully guided and aligned with the demands of today’s evolving creative landscape.
             </p>
             <p className="text-[15px] text-white leading-7 opacity-0 animate-fade-up animate-delay-200">
-              It is a space where strong creative direction and dedicated talent come together to deliver meaningful,
-              exceptional work.
+              It is a space where strong creative direction and dedicated talent come together to deliver meaningful, exceptional work.
             </p>
           </div>
         </div>
@@ -41,16 +43,23 @@ const AuraaEdge = () => {
               animationFillMode: "forwards"
             }}>
               <div className="relative overflow-hidden mb-4 transition-all duration-700 rounded-[4px]">
-                <img src={member.image} alt={member.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 max-h-[388px]" />
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  loading="lazy"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 max-h-[388px]"
+                />
               </div>
-              <h3 className="text-primary-foreground font-light text-[27px] mb-1 leading-[61px]">{member.name}</h3>
-              <p className="text-base font-light leading-8 text-white armata">{member.role}</p>
-            </Link>)}
+
+              <div>
+                <h3 className="text-primary-foreground font-light text-[27px] mb-1 leading-[61px]">{member.name}</h3>
+                <p className="text-base font-light leading-8 text-white armata">{member.role}</p>
+              </div>
+            </Link>
+            )}
           </div>
         </div>
       </section>
-
-      {/* CTA */}
     </Layout>
   )
 };

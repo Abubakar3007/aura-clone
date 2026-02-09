@@ -1,19 +1,17 @@
-import Layout from '@/components/layout/Layout'
-import React from 'react'
-import creativeDirector from "@/assets/creative-director.jpg";
-import { Link } from 'react-router-dom';
+import Layout from '@/app/components/layout/Layout'
+import Link from 'next/link';
 const Creative = () => {
 
   const images = [
-    "https://i.redd.it/x8aaxbjh8r6a1.jpg",
-    "https://i.guim.co.uk/img/media/f76e2c99e1d0683752be0bc8708f37a09cb4c124/0_205_3072_1843/master/3072.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=ed43e7e895c6008bf35ecfef497e7654",
-    "https://townsquare.media/site/442/files/2012/04/Avengers19.jpg?w=780&q=75",
-    "https://i.pinimg.com/736x/24/84/70/248470199d7901dd9f5adbed7a6a3932.jpg",
-    "https://i.pinimg.com/736x/e8/8d/00/e88d009ac7b4b64a2010a4ed70a5b5f8.jpg",
-    "https://i.pinimg.com/736x/3d/0d/f6/3d0df620067c5626253d4ddea72e890a.jpg",
-    "https://i.pinimg.com/originals/c9/6c/30/c96c308f905434c7e2f33fa81b9c2763.jpg",
-    "https://i.pinimg.com/474x/b3/11/e0/b311e0534efb2363468c32a6a22da362.jpg",
-    "https://i.pinimg.com/564x/66/ca/88/66ca888aadad4787e40810e984a53600.jpg",
+        "https://www.gngmodels.com/wp-content/uploads/2023/12/indian-male-models-9-682x1024.jpg",
+        "https://www.gngmodels.com/wp-content/uploads/2023/12/indian-male-models-11-682x1024.jpg",
+        "https://www.gngmodels.com/wp-content/uploads/2023/12/indian-male-models-3-682x1024.jpg",
+        "https://www.gngmodels.com/wp-content/uploads/2023/12/indian-male-models-10-682x1024.jpg",
+        "https://www.bringitonline.in/uploads/2/2/4/5/22456530/bio-ank-16_orig.jpg",
+        "https://www.bringitonline.in/uploads/2/2/4/5/22456530/bio-ank-21_orig.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBctKcK2zV42qYfMq_bIRik7sxfgFO1ZaBkEZ1qi0FXA&s",
+        "https://www.gngmodels.com/wp-content/uploads/2023/12/indian-male-models-1-682x1024.jpg",
+        "https://praveenbhat.net/wp-content/uploads/2024/08/Screenshot-2024-08-10-191725.png",
   ];
 
   return (
@@ -34,7 +32,7 @@ const Creative = () => {
           {/* right image */}
           <div className='flex-1'>
             <figure>
-              <img src={creativeDirector} alt="Creative image" />
+              <img src="https://www.gngmodels.com/wp-content/uploads/2023/12/indian-male-models-2-682x1024.jpg" alt="Creative image" />
             </figure>
           </div>
         </div>
@@ -45,9 +43,8 @@ const Creative = () => {
         <div className='container xl:px-0 px-6'>
           <div className="gap-4 md:columns-3 sm:columns-2">
             {images.map((img, i) => (
-              <Link to="/creatives">
+              <Link href="/creatives" key={i}>
                 <img
-                  key={i}
                   src={img}
                   className="mb-4 w-full break-inside-avoid"
                 />

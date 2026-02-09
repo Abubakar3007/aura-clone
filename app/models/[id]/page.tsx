@@ -104,7 +104,7 @@ const ModelDetail = () => {
                             {/* Previous */}
                             <PaginationItem>
                                 <PaginationPrevious asChild className="text-gray-400 transition-all hover:bg-transparent hover:text-black cursor-pointer">
-                                    <Link to="/" />
+                                    <Link href="/" />
                                 </PaginationPrevious>
                             </PaginationItem>
 
@@ -121,7 +121,7 @@ const ModelDetail = () => {
                             {/* Next */}
                             <PaginationItem>
                                 <PaginationNext asChild className="text-gray-400 transition-all hover:bg-transparent hover:text-black cursor-pointer">
-                                    <Link to="/" />
+                                    <Link href="/" />
                                 </PaginationNext>
                             </PaginationItem>
 
