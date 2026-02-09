@@ -2,6 +2,7 @@ import Layout from '@/app/components/layout/Layout'
 import Link from 'next/link';
 const Creative = () => {
 
+  // dummy image link
   const images = [
         "https://www.gngmodels.com/wp-content/uploads/2023/12/indian-male-models-9-682x1024.jpg",
         "https://www.gngmodels.com/wp-content/uploads/2023/12/indian-male-models-11-682x1024.jpg",
@@ -16,7 +17,6 @@ const Creative = () => {
 
   return (
     <Layout>
-
       {/* details */}
       <section className='pt-12 pb-20'>
         <div className='container xl:px-0 px-6 flex items-end gap-20 md:flex-row flex-col-reverse'>

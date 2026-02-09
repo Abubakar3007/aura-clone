@@ -1,4 +1,3 @@
-import React from 'react'
 import { Play, Expand, Download, X } from 'lucide-react'
 const ModelImagePopup = ({ open, onClose, imageURL, currentIndex, totalImages }: { open: boolean, onClose: () => void, imageURL: string | null, currentIndex: number, totalImages: number }) => {
     return (

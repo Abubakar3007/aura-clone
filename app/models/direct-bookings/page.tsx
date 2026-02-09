@@ -1,5 +1,4 @@
 "use client";
-
 import { useSearchParams } from "next/navigation";
 import Layout from "@/app/components/layout/Layout";
 import ModelGrid from "@/app/components/models/ModelGrid";

@@ -1,12 +1,9 @@
 import * as React from "react";
 import { MoveLeft, MoveRight, MoreHorizontal } from "lucide-react";
-import { Slot } from "@radix-ui/react-slot";
-
 import { cn } from "@/app/components/lib/utils";
 import { ButtonProps, buttonVariants } from "@/app/components/ui/button";
 
 /* ---------------- Pagination Root ---------------- */
-
 const Pagination = ({
   className,
   ...props
@@ -21,7 +18,6 @@ const Pagination = ({
 Pagination.displayName = "Pagination";
 
 /* ---------------- Pagination Content ---------------- */
-
 const PaginationContent = React.forwardRef<
   HTMLUListElement,
   React.ComponentProps<"ul">
@@ -35,7 +31,6 @@ const PaginationContent = React.forwardRef<
 PaginationContent.displayName = "PaginationContent";
 
 /* ---------------- Pagination Item ---------------- */
-
 const PaginationItem = React.forwardRef<
   HTMLLIElement,
   React.ComponentProps<"li">
@@ -45,10 +40,8 @@ const PaginationItem = React.forwardRef<
 PaginationItem.displayName = "PaginationItem";
 
 /* ---------------- Pagination Link ---------------- */
-
 type PaginationLinkProps = {
   isActive?: boolean;
-  asChild?: boolean;
 } & Pick<ButtonProps, "size"> &
   React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
@@ -56,14 +49,11 @@ const PaginationLink = ({
   className,
   isActive,
   size = "icon",
-  asChild = false,
   children,
   ...props
 }: PaginationLinkProps) => {
-  const Comp = asChild ? Slot : "a";
-
   return (
-    <Comp
+    <a
       aria-current={isActive ? "page" : undefined}
       className={cn(
         buttonVariants({
@@ -75,67 +65,46 @@ const PaginationLink = ({
       {...props}
     >
       {children}
-    </Comp>
+    </a>
   );
 };
 PaginationLink.displayName = "PaginationLink";
 
 /* ---------------- Pagination Previous ---------------- */
-
 const PaginationPrevious = ({
   className,
-  asChild,
-  children,
   ...props
 }: React.ComponentProps<typeof PaginationLink>) => (
   <PaginationLink
     aria-label="Go to previous page"
     size="default"
-    asChild={asChild}
-    className={cn("gap-1", className)}
+    className={cn("gap-1 flex items-center", className)}
     {...props}
   >
-    {asChild ? (
-      children
-    ) : (
-      <>
-        <MoveLeft className="h-4 w-4" />
-        <span>Previous</span>
-      </>
-    )}
+    <MoveLeft className="h-4 w-4 align-middle" />
+    <span className="align-middle">Previous</span>
   </PaginationLink>
 );
 PaginationPrevious.displayName = "PaginationPrevious";
 
 /* ---------------- Pagination Next ---------------- */
-
 const PaginationNext = ({
   className,
-  asChild,
-  children,
   ...props
 }: React.ComponentProps<typeof PaginationLink>) => (
   <PaginationLink
     aria-label="Go to next page"
     size="default"
-    asChild={asChild}
-    className={cn("gap-1", className)}
+    className={cn("gap-1 flex items-center", className)}
     {...props}
   >
-    {asChild ? (
-      children
-    ) : (
-      <>
-        <span>Next</span>
-        <MoveRight className="h-4 w-4" />
-      </>
-    )}
+    <span className="align-middle">Next</span>
+    <MoveRight className="h-4 w-4 align-middle" />
   </PaginationLink>
 );
 PaginationNext.displayName = "PaginationNext";
 
 /* ---------------- Pagination Ellipsis ---------------- */
-
 const PaginationEllipsis = ({
   className,
   ...props
@@ -152,7 +121,6 @@ const PaginationEllipsis = ({
 PaginationEllipsis.displayName = "PaginationEllipsis";
 
 /* ---------------- Exports ---------------- */
-
 export {
   Pagination,
   PaginationContent,

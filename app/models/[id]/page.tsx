@@ -2,10 +2,12 @@
 import Layout from "@/app/components/layout/Layout";
 import ModelImagePopup from "@/app/components/models/ModelImagePopup";
 import { useState, useRef } from "react";
-import { Pagination, PaginationContent, PaginationItem, PaginationPrevious, PaginationNext, PaginationLink} from "@/app/components/ui/pagination";
 import { Grid2x2 } from "lucide-react";
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationPrevious, PaginationNext } from "@/app/components/ui/pagination";
 import Link from "next/link";
 const ModelDetail = () => {
+
+    // model dummy images
     const images = [
         "https://www.gngmodels.com/wp-content/uploads/2023/12/indian-male-models-9-682x1024.jpg",
         "https://www.gngmodels.com/wp-content/uploads/2023/12/indian-male-models-11-682x1024.jpg",
@@ -24,6 +26,7 @@ const ModelDetail = () => {
     const [openPopup, setOpenPopup] = useState(false);
     const [imageURL, setImageURL] = useState<string | null>(null);
 
+    // slider images click
     const handleFigureClick = (
         e: React.MouseEvent<HTMLDivElement>,
         image: string
@@ -34,11 +37,8 @@ const ModelDetail = () => {
         const containerRect = container.getBoundingClientRect();
         const figureRect = e.currentTarget.getBoundingClientRect();
 
-        const containerCenter =
-            containerRect.left + containerRect.width / 2;
-        const figureCenter =
-            figureRect.left + figureRect.width / 2;
-
+        const containerCenter = containerRect.left + containerRect.width / 2;
+        const figureCenter = figureRect.left + figureRect.width / 2;
         const threshold = figureRect.width / 3;
 
         // ✅ CENTER IMAGE → POPUP
@@ -64,12 +64,14 @@ const ModelDetail = () => {
         }
     };
 
+    // big image popup
     const handleImagePopup = (image: string) => {
         setImageURL(image);
         setOpenPopup(true);
         setCurrentIndex(images.indexOf(image));
     };
 
+    // model video dummy url
     let modelVideoURL = "https://www.pexels.com/download/video/7325049/";
 
     return (
@@ -103,16 +105,17 @@ const ModelDetail = () => {
 
                             {/* Previous */}
                             <PaginationItem>
-                                <PaginationPrevious asChild className="text-gray-400 transition-all hover:bg-transparent hover:text-black cursor-pointer">
-                                    <Link href="/" />
-                                </PaginationPrevious>
+                                <PaginationPrevious
+                                    href="/"
+                                    className="text-gray-400 hover:bg-transparent hover:text-black"
+                                />
                             </PaginationItem>
 
                             {/* Center Grid Icon */}
                             <PaginationItem>
                                 <PaginationLink
                                     href="#"
-                                    className="text-gray-400 transition-all hover:bg-transparent hover:text-black"
+                                    className="text-gray-400 hover:bg-transparent hover:text-black"
                                 >
                                     <Grid2x2 className="w-4 h-4" />
                                 </PaginationLink>
@@ -120,9 +123,10 @@ const ModelDetail = () => {
 
                             {/* Next */}
                             <PaginationItem>
-                                <PaginationNext asChild className="text-gray-400 transition-all hover:bg-transparent hover:text-black cursor-pointer">
-                                    <Link href="/" />
-                                </PaginationNext>
+                                <PaginationNext
+                                    href="/"
+                                    className="text-gray-400 hover:bg-transparent hover:text-black"
+                                />
                             </PaginationItem>
 
                         </PaginationContent>
@@ -146,7 +150,6 @@ const ModelDetail = () => {
                         {/* ploaraids */}
                         <a href="" target="_blank" className="text-sm leading-6">Download Polaroids</a>
                     </div>
-
                     {
                         modelVideoURL ? (
                             <Link href="/auraaedge" className="btn-primary armata mt-8 w-fit flex h-[60px]">
@@ -163,6 +166,7 @@ const ModelDetail = () => {
                 </div>
             </section>
 
+            {/* model image popup */}
             <ModelImagePopup
                 open={openPopup}
                 onClose={() => setOpenPopup(false)}

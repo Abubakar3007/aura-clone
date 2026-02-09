@@ -3,7 +3,7 @@ import Link from "next/link";
 import Layout from "@/app/components/layout/Layout";
 const Join = () => {
   return (
-  <Layout>
+    <Layout>
       {/* Main Editorial Content */}
       <section className="py-12 bg-background">
         <div className="max-w-[1200px] w-full mx-auto text-center xl:px-0 px-6">
@@ -44,9 +44,9 @@ const Join = () => {
       {/* CTA Section */}
       <section className="py-24 bg-secondary">
         <div className="container text-center xl:px-0 px-6">
-          <h2 className="text-[#252525] mb-14 text-[45px]">Want to become a model?</h2>
+          <h2 className="text-black/90 mb-14 text-[45px]">Want to become a model?</h2>
           <div className="flex justify-center">
-            <Link href="/request-callback" className="btn-primary h-[60px] armata">
+            <Link href="/request-call-back" className="btn-primary h-[60px] armata">
               Apply Now
               <ChevronRight className="w-5 h-5" />
             </Link>
@@ -55,8 +55,8 @@ const Join = () => {
       </section>
 
       {/* What We Look For */}
-      
+
     </Layout>
-    )
+  )
 };
 export default Join;

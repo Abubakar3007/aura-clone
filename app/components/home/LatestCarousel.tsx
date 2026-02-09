@@ -3,9 +3,6 @@ import { useRef } from "react";
 import { MoveLeft, MoveRight } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Navigation } from "swiper/modules";
-
-
-
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";

@@ -33,7 +33,8 @@ const CallbackForm = () => {
       message: ""
     });
   };
-  return <form onSubmit={handleSubmit} className="max-w-[600px] w-full mx-auto">
+  return (
+    <form onSubmit={handleSubmit} className="max-w-[600px] w-full mx-auto">
       {/* Name Fields */}
       <div className="grid grid-cols-2 sm:gap-6 gap-3 mb-6">
         <div>
@@ -88,6 +89,7 @@ const CallbackForm = () => {
         <span className="align-middle">Submit</span>
         <ChevronRight className="w-6 h-6 inline-block ml-2 align-middle" />
       </button>
-    </form>;
+    </form>
+  );
 };
 export default CallbackForm;

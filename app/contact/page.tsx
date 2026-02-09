@@ -78,7 +78,7 @@ const Contact = () => {
       </section>
 
       {/* Our Network Section */}
-      <section className="bg-[#252525] py-32">
+      <section className="bg-primary/90 py-32">
         <div className="container">
           <div className="text-center">
             <h5 className="text-white mb-4">Our Network</h5>

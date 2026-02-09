@@ -13,7 +13,6 @@ const Navbar = () => {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
 
-  /* ---------- SCROLL HANDLER ---------- */
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 400);
@@ -23,7 +22,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  /* ---------- CLOSE MOBILE MENU ON ROUTE CHANGE ---------- */
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
@@ -38,7 +36,6 @@ const Navbar = () => {
 
   return (
     <>
-      {/* ================= NAVBAR ================= */}
       <nav
         className={`
           w-full z-50
